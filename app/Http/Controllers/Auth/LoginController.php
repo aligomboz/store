@@ -21,7 +21,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as protected originalLogout;
+    }
 
     /**
      * Where to redirect users after login.
@@ -57,6 +59,23 @@ class LoginController extends Controller
         }
     }
 
+    public function logout(Request $request)
+    {
+        $cart = collect($request->session()->get('cart'));
+
+        /* Call original logout method */
+        $response = $this->originalLogout($request);
+
+        /* Repopulate Sesssion with Cart */
+        if (!config('cart.destroy_on_logout')) {
+            $cart->each(function ($rows, $identifier) use ($request){
+                $request->session()->put('cart.'. $identifier, $rows);
+            });
+        }
+
+        /* Return original response */
+        return $response;
+    }
     protected function loggedOut(Request $request){
         Cache::forget('user_routes');
         Cache::forget('role_routes');

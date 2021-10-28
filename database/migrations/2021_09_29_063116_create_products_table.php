@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id')->references('id')->on('product_categories')->cascadeOnDelete();
             $table->boolean('featured')->default(false);
             $table->boolean('status')->default(false);
-
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\ProductCategory;
 use App\Models\ProductCoupon;
 use App\Models\ShippingCompany;
+use App\Models\UserAddress;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             // ProductImagesSeeder::class,
             // ProductCouponSeeder::class,
             // ProductReviewSeeder::class,
+            // PaymentMethodSeeder::class,
             WorldSeeder::class,
             WorldStatusSeeder::class,
             ShippingCompanySeeder::class

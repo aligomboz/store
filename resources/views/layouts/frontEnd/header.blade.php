@@ -30,11 +30,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{route('front.cart')}}"> <i
-                                class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small
-                                class="text-gray">(2)</small></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small
-                                class="text-gray"> (0)</small></a></li>
+                    <livewire:frontend.carts />
                     @guest
                     <li class="nav-item"><a class="nav-link" href="{{route('login')}}"> <i
                                 class="fas fa-user-alt mr-1 text-gray"></i>Login</a></li>
@@ -48,7 +44,7 @@
                             {{-- Welcom , {{auth()->user()->first_name . ' ' . auth()->user()->last_name }} --}}
                         </a>
                         <div class="dropdown-menu mt-3" aria-labelledby="authDropdown">
-                            <a href="#" class="dropdown-item border-0">{{__('My profile')}}</a>
+                            <a href="{{route('customer.profile')}}" class="dropdown-item border-0">{{__('My profile')}}</a>
                             <a href="javascript:void(0);" class="dropdown-item border-0"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{__('Logout')}}</a>
                             <form action="{{route('logout')}}" method="POST" id="logout-form" class="d-none">

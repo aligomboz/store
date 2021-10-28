@@ -31,7 +31,7 @@ class frontEndController extends Controller
             ->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
 
         $relatedProducts = Product::with('firstMedia')->whereHas('category', function ($query) use ($product) {
-            $query->whereId($product->product_category_id);
+            $query->whereId($product->category_id);
             $query->whereStatus(true);
         })->inRandomOrder()->Active()->HasQuantity()->take(4)->get();
         return view('frontend.product', [
@@ -40,8 +40,19 @@ class frontEndController extends Controller
         ]);
     }
 
-    public function shop()
+    public function shop($slug = null)
     {
-        return view('frontEnd.shop');
+        return view('frontend.shop', compact('slug'));
     }
+    public function shop_tag($slug = null)
+    {
+        return view('frontend.shop_tag', compact('slug'));
+    }
+
+    
+    public function wishlist()
+    {
+        return view('frontend.wishlist');
+    }
+
 }

@@ -36,8 +36,8 @@ class ShippingCompany extends Model
         return $this->belongsToMany(Country::class, 'shipping_company_country');
     }
 
-    // public function orders(): HasMany
-    // {
-    //     return $this->hasMany(Order::class);
-    // }
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }

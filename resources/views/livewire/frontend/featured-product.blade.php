@@ -49,7 +49,14 @@
             </div>
             @empty
             @endforelse
-
+                {{-- <tr>
+                    <td colspan="9">
+                        <div class="float-right">
+                            {!! $featuredProducts->appends(request()->all())->links() !!}
+                        </div>
+                    </td>
+                </tr> --}}
         </div>
+        {{-- <livewire:frontend.product-modal-shared/> --}}
     </section>
 </div>

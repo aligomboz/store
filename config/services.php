@@ -29,5 +29,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'paypal' => [
+        'username' => 'sb-vhdwg3022440_api1.business.example.com',
+        'password' => 'NE82QM3U8P52KE3V',
+        'signature' => 'Ao-K9Iwg8PG.CQq3x8pYLJQTsiCJA43nm2TZ1K0E2WQhsUX5orxWIFYu',
+        'sandbox' => true,
+    ]
 
 ];

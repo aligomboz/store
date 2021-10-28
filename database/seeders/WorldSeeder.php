@@ -20,7 +20,6 @@ class WorldSeeder extends Seeder
             'username' => 'root',
             'password' => null,
         ];
-
         exec("mysql --user={$db['username']} --password={$db['password']} --host={$db['host']} --database={$db['database']} < $sql_file");
     }
 }

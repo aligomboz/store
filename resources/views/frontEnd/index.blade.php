@@ -47,6 +47,7 @@
                 <strong class="category-item-title">Electronics</strong>
             </a>
         </div>
+
     </div>
 </section>
 
